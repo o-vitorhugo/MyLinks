@@ -1,0 +1,175 @@
+/* Alinhar elementos ao centro:
+
+Display: block
+  margin: auto;
+
+Display: inline
+  text-align: center;
+
+Display: flex
+  align-items: center; -- verticalmente
+  justify-content: center; -- horizontalmente */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root /*Root: raiz (pseudo-selector)*/ {
+  /*Tema escuro (original) -- Declaração de variáveis*/
+  --text-color: white;
+  --bg-url: url(./assets/bg-mobile.jpg);
+  --stroke-color: rgba(255, 255, 255, 0.5); /*Cor das bordas das caixas de texto*/
+  --surface-color: rgba(255, 255, 255, 0.1); /*Cor do fundo das caixas de texto*/
+  --surface-color-hover: rgba(255, 255, 255, 0.05);
+  --highlight-color: rgba(255, 255, 255, 0.2); /*Cor do fundo dos ícones*/
+  --switch-bg-url: url(./assets/moon-stars.svg); /*Ícone do botão dark/light*/
+}
+
+.light {
+  /*Tema claro -- Declaração de variáveis*/
+  --text-color: black;
+  --bg-url: url(./assets/bg-mobile-light.jpg);
+  --stroke-color: rgba(0, 0, 0, 0.5);
+  --surface-color: rgba(0, 0, 0, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(0, 0, 0, 0.1);
+  --switch-bg-url: url(./assets/sun.svg);
+}
+
+body {
+  background: var(--bg-url) no-repeat top center/cover;
+  /*background: color image repeat position/size*/
+}
+
+body * {
+  font-family: "Inter", sans-serif;
+  color: var(--text-color); /*Var é usada para inserir uma variável*/
+}
+
+#container {
+  width: 360px;
+  margin: 56px auto 0px;
+  padding: 0 24px;
+}
+
+/*Profile*/
+
+#profile {
+  text-align: center;
+  padding: 24px;
+}
+
+#profile img {
+  width: 112px;
+}
+
+#profile p {
+  font-weight: 500;
+  line-height: 24px;
+  margin-top: 8px;
+}
+
+/*Switch*/
+
+#switch {
+  position: relative; /*Position absolute se torna relativo ao position relative*/
+  width: 64px;
+  margin: 4px auto;
+}
+
+#switch button {
+  /*Switch -- ícone*/
+  width: 32px;
+  height: 32px;
+  background: white var(--switch-bg-url) no-repeat center;
+  border: 0;
+  border-radius: 50%; /*Transforma o background da caixa em círculo*/
+
+  position: absolute; /*Usado para sobrepor camadas, ou seja, colocar um elemento em cima ou embaixo de outro*/
+  top: 50%;
+  transform: translateY(-50%); /*Usado junto com o top para alinhar botão ao centro do track*/
+  left: 0;
+  z-index: 1; /*Define a posição do elemento, nesse caso está no "andar" 1*/
+}
+
+.light #switch button {
+  /*Switch no modo claro*/
+  left: initial;
+  right: 0;
+}
+
+#switch span {
+  /*Track*/
+  display: block; /*Pois span é inline, a qual não aceita width e height*/
+  width: 64px;
+  height: 24px;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  backdrop-filter: blur(4px); /*Adiciona um filtro borrado*/
+  -webkit-backdrop-filter: blur(4px); /*Usado para funcionar também em outros navegadores*/
+  border-radius: 9999px;
+}
+
+/* Links */
+
+ul {
+  list-style: none; /* Tira pontos de cada tópico*/
+
+  display: flex; /*Faz com que os elementos da caixa fiquem um ao lado do outro de maneira flexível*/
+  flex-direction: column; /*Altera o sentido de linha para colunas*/
+  gap: 16px; /*Espaço entre linhas/colunas*/
+
+  padding: 24px 0;
+}
+
+ul li a {
+  display: flex;
+  align-items: center; /*Alinha itens ao centro da linha verticalmente*/
+  justify-content: center; /*Alinha itens ao centro da linha horizontamente*/
+
+  padding: 16px 24px;
+
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  border-radius: 8px;
+
+  backdrop-filter: blur(4px); /*Adiciona um filtro borrado*/
+  -webkit-backdrop-filter: blur(4px); /*Usado para funcionar também em outros navegadores*/
+
+  text-decoration: none;
+  font-weight: 500; /*Font-weight acima de 400 é considerado como bold*/
+
+  transition: all 0.2s;
+}
+
+/*Pseudo-selector*/
+
+ul li a:hover {
+  background: var(--surface-color-hover);
+  border: 1.5px solid var(--text-color);
+}
+
+/*Social links*/
+
+#social-links {
+  display: flex;
+  justify-content: center;
+  padding: 24px 0;
+  font-size: 24px;
+}
+
+#social-links a {
+  display: flex;
+  align-items: center; /*Alinha itens ao centro da linha verticalmente*/
+  justify-content: center; /*Alinha itens ao centro da linha horizontamente*/
+  padding: 16px;
+
+  border-radius: 50%; /*Transforma o background da caixa em círculo*/
+  transition: all 0.2s;
+}
+
+#social-links a:hover {
+  background: var(--highlight-color);
+}

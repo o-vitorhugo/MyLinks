@@ -1,0 +1,78 @@
+<!DOCTYPE html> <!--Define documento HTML-->
+<html lang="pt-br"> <!--Root element-->
+  <head> <!--Filho | Node (nó) | Ajusta configurações do documento que não são visíveis para quem acessa a página-->
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+    <meta charset="UTF-8" /> <!--Permite que a página aceite caracteres especiais-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" /> <!--Compatibilidade com navegadores mais antigos-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!--Permite que a página se ajuste ao tamanho da tela-->
+    <title>Links</title>
+    <link rel="stylesheet" href="style.css" />
+
+  </head>
+
+  <body> <!--Filho | Node (nó) -->
+    
+    <div id="container">
+      <div id="profile">
+        <img src="./assets/avatar.png" alt="Foto de Vitor Hugo." />
+        <p>@hugo.reisj</p>
+      </div>
+
+      <div id="switch" onclick="toggleMode()"> <!--Função utilizada para adicionar JS-->
+        <button></button>
+        <span></span>
+      </div>
+
+      <!--Links-->
+
+      <ul>
+
+        <li>
+          <a href="https://www.instagram.com/hugo.reisj/" target="_blank">Instagram</a>
+        </li>
+
+        <li>
+          <a href="https://www.linkedin.com/in/o-vitorhugo" target="_blank">LinkedIn</a>
+        </li>        
+
+        <li>
+          <a href="https://github.com/o-vitorhugo" target="_blank">GitHub</a>
+        </li>
+
+        <li>
+          <a href="mailto:hugo.reisj@hotmail.com">E-mail</a>
+        </li>   
+      
+      </ul>      
+
+      <!--Social links -- ícones-->
+
+      <div id="social-links">
+        <a href="https://www.instagram.com/hugo.reisj/" target="_blank">
+          <ion-icon name="logo-instagram"></ion-icon>
+        </a>
+
+        <a href="https://www.linkedin.com/in/o-vitorhugo" target="_blank">
+          <ion-icon name="logo-linkedin"></ion-icon>
+        </a>
+
+        <a href="https://github.com/o-vitorhugo" target="_blank">
+          <ion-icon name="logo-github"></ion-icon>
+        </a>
+
+        <a href="mailto:hugo.reisj@hotmail.com">
+          <ion-icon name="mail"></ion-icon>
+        </a>
+      </div>
+
+    </div>
+
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
