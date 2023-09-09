@@ -9,7 +9,7 @@
     <meta charset="UTF-8" /> <!--Permite que a página aceite caracteres especiais-->
     <meta http-equiv="X-UA-Compatible" content="IE=edge" /> <!--Compatibilidade com navegadores mais antigos-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!--Permite que a página se ajuste ao tamanho da tela-->
-    <title>Links</title>
+    <title>MyLinks</title>
     <link rel="stylesheet" href="style.css" />
 
   </head>
@@ -17,18 +17,20 @@
   <body> <!--Filho | Node (nó) -->
     
     <div id="container">
+
+      <!--Profile/perfil-->
       <div id="profile">
         <img src="./assets/avatar.png" alt="Foto de Vitor Hugo." />
         <p>@hugo.reisj</p>
       </div>
 
+      <!--Switch/botão-->
       <div id="switch" onclick="toggleMode()"> <!--Função utilizada para adicionar JS-->
         <button></button>
         <span></span>
       </div>
 
       <!--Links-->
-
       <ul>
 
         <li>
@@ -49,9 +51,10 @@
       
       </ul>      
 
-      <!--Social links -- ícones-->
+      <!--Social links/ícones-->
 
       <div id="social-links">
+
         <a href="https://www.instagram.com/hugo.reisj/" target="_blank">
           <ion-icon name="logo-instagram"></ion-icon>
         </a>
@@ -67,12 +70,13 @@
         <a href="mailto:hugo.reisj@hotmail.com">
           <ion-icon name="mail"></ion-icon>
         </a>
+
       </div>
 
     </div>
 
-    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script> <!--Script referente aos ícones/logos usados-->
 
-    <script src="./script.js"></script>
+    <script src="./script.js"></script> <!--Script para ligar ao arquivo JS-->
   </body>
 </html>

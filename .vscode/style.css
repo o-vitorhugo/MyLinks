@@ -41,6 +41,7 @@ Display: flex
 body {
   background: var(--bg-url) no-repeat top center/cover;
   /*background: color image repeat position/size*/
+  height: 100vh;
 }
 
 body * {
@@ -49,7 +50,8 @@ body * {
 }
 
 #container {
-  width: 360px;
+  width: 100%; /*Largura será de 100% até atingir max-width, nesse caso de 588px*/
+  max-width: 588px; /*Largura máxima do container*/
   margin: 56px auto 0px;
   padding: 0 24px;
 }
@@ -92,12 +94,17 @@ body * {
   transform: translateY(-50%); /*Usado junto com o top para alinhar botão ao centro do track*/
   left: 0;
   z-index: 1; /*Define a posição do elemento, nesse caso está no "andar" 1*/
+
+  animation: slide-back 0.2s;
 }
 
-.light #switch button {
-  /*Switch no modo claro*/
-  left: initial;
-  right: 0;
+.light #switch button { /*Switch no modo claro*/
+  animation: slide-in 0.2s forwards; /*Animação para switch deslizar ao clicar no botão*/
+  /*forwards serve para manter o switch no lugar ao trocar de modo*/
+}
+
+#switch button:hover {
+  outline: 8px solid var(--highlight-color); /*Adiciona um círculo ao redor do switch ao deixar o mouse sobre ele*/
 }
 
 #switch span {
@@ -172,4 +179,39 @@ ul li a:hover {
 
 #social-links a:hover {
   background: var(--highlight-color);
+}
+
+/*Media queries -- Funciona apenas quando há meta viewport no HTML*/
+
+@media (min-width: 700px) { /*Regras irão valer quando o valor da width passar de 700px*/
+  :root {
+    --bg-url: url(./assets/bg-desktop.jpg);
+  }
+
+  .light {
+    --bg-url: url(./assets/bg-desktop-light.jpg);
+  }
+}
+
+/*Animation -- Fazendo switch deslizar ao trocar de modo*/
+
+@keyframes slide-in { /*Regra que serve para criar animações | @keyframes + nome qualquer (nesse caso slide-in)*/
+  from {
+    left: 0;
+  }
+
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes slide-back {
+  from {
+    left: 50%;
+  }
+
+  to {
+    left: 0;
+  }
+
 }
